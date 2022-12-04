@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sailor Bootstrap Template - Index</title>
+  <title>LandingPage</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,23 +29,10 @@
   <link href="assets/css/style.css" rel="stylesheet">
   
 
-  <!-- =======================================================
-  * Template Name: Sailor - v4.9.1
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+ 
 </head>
 <style>
-        span{
-        animation: blinker 1s linear infinite;
-        }
-
-        @keyframes blinker{
-        50%{
-            opacity: 0;
-        }
-        }
+       
 </style>
 <body>
 
@@ -64,7 +51,7 @@
         <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>QWords</span></h2>
               <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
@@ -459,18 +446,62 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script>
-            var i = 0;
-            const message = ["Cloud Hosting Indonesia dengan Promo Menarik !","Cloud Hosting Indonesia dengan Pelayanan Terbaik","Cloud Hosting Indonesia dengan Resources Terbaik"] 
-            const speedwriter = 50
-            let textPosition = 0; 
-            function typewriter() {
-            document.querySelector("#message").innerHTML = message[0].substring(0, textPosition) + '<span>\u25AE</span>'
-                if(textPosition++ != message[1].length)
-                    setTimeout(typewriter, speedwriter)
-                }
+              // List of sentences
+            var _CONTENT = ["Cloud Hosting Indonesia dengan Promo Menarik !","Cloud Hosting Indonesia dengan Pelayanan Terbaik","Cloud Hosting Indonesia dengan Resources Terbaik"];
 
-            
-            window.addEventListener("load", typewriter); 
+            // Current sentence being processed
+            var _PART = 0;
+
+            // Character number of the current sentence being processed 
+            var _PART_INDEX = 0;
+
+            // Holds the handle returned from setInterval
+            var _INTERVAL_VAL;
+
+            // Element that holds the text
+            var _ELEMENT = document.querySelector("#message");
+
+            // Implements typing effect
+            function Type() { 
+              var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+              _ELEMENT.innerHTML = text;
+              _PART_INDEX++;
+
+              // If full sentence has been displayed then start to delete the sentence after some time
+              if(text === _CONTENT[_PART]) {
+                clearInterval(_INTERVAL_VAL);
+                setTimeout(function() {
+                  _INTERVAL_VAL = setInterval(Delete, 50);
+                }, 1000);
+              }
+            }
+
+            // Implements deleting effect
+            function Delete() {
+              var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+              _ELEMENT.innerHTML = text;
+              _PART_INDEX--;
+
+              // If sentence has been deleted then start to display the next sentence
+              if(text === '') {
+                clearInterval(_INTERVAL_VAL);
+
+                // If last sentence then display the first one, else move to the next
+                if(_PART == (_CONTENT.length - 1))
+                  _PART = 0;
+                else
+                  _PART++;
+                _PART_INDEX = 0;
+
+                // Start to display the next sentence after some time
+                setTimeout(function() {
+                  _INTERVAL_VAL = setInterval(Type, 50);
+                }, 200);
+              }
+            }
+
+            // Start the typing effect on load
+            _INTERVAL_VAL = setInterval(Type, 100);
             </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
