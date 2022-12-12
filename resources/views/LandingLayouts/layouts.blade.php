@@ -21,19 +21,41 @@
           </li>
 
           <li class="dropdown"><a href="#"><span>Server</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-               <!-- //taro sini-->
-              <li class="dropdown" id="array"><a href="#"><span id="arrayspan"></span> <i class="bi bi-chevron-right"></i></a>
+            <ul>
+              @foreach($server as $c)               
+              <li class="dropdown"><a href="#"><span>{{$c}}</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Explainer (Hot)</a></li>
                 </ul>
               </li>              
-                            
+              @endforeach              
             </ul>
           </li>
 
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li class="dropdown"><a href="#"><span>Internet Access</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              @foreach($internetaccess as $c)               
+              <li class="dropdown"><a href="#"><span>{{$c}}</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Explainer (Hot)</a></li>
+                </ul>
+              </li>              
+              @endforeach              
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Domain</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              @foreach($domain as $c)               
+              <li class="dropdown"><a href="#"><span>{{$c}}</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Explainer (Hot)</a></li>
+                </ul>
+              </li>              
+              @endforeach              
+            </ul>
+          </li>
+
           <li><a href="blog.html">Blog</a></li>
 
           <li><a href="contact.html">Contact</a></li>
