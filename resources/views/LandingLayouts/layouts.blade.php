@@ -56,10 +56,17 @@
             </ul>
           </li>
 
-          <li><a href="blog.html">Blog</a></li>
+          
 
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="index.html" class="getstarted">Get Started</a></li>
+          
+        <li class="dropdown"><a href="" class="getstarted">Login</a>
+          <ul>        
+                <li ><a href="#"><span>Login A</span></a>
+                </li> 
+                <li ><a href="#"><span>Login B</span></a>
+                </li>      
+          </ul>
+        </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
